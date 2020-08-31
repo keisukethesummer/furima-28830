@@ -74,18 +74,18 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one :address
-- belongs_to :items
+- belongs_to :item
 
 ## addressesテーブル
 |Column         |Type       |Option                          |
 |---------------|-----------|--------------------------------|
 |order          | reference | null: false, foreign_key: true |
-|postal_number  | integer   | null: false                    |
-|prefecture     | reference | null: false                    |
+|postal_number  | string    | null: false                    |
+|prefecture     | integer   | null: false                    |
 |city           | string    | null: false                    |
 |house_number   | string    | null: false                    |
 |build_name     | string    |                                |
-|phone_number   | integer   | null: false                    |
+|phone_number   | string    | null: false                    |
 
 ## Association
 
