@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 2020_09_04_060626) do
     t.string "image", null: false
     t.text "description", null: false
     t.integer "price", null: false
-    t.integer "category", null: false
-    t.integer "condition", null: false
-    t.integer "delivery_fee", null: false
-    t.integer "seller_prefecture", null: false
-    t.integer "shipment_day", null: false
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "delivery_fee_id", null: false
+    t.integer "seller_prefecture_id", null: false
+    t.integer "shipment_day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
