@@ -5,8 +5,9 @@ window.addEventListener('load',function(){
     XHR.responseType = "json";
     XHR.onreadystatechange = function (){
       if (XHR.readyState == 4 && XHR.status == 200){
-        document.getElementById('add-tax-price').textContent = Math.floor(document.getElementById('item-price').value / 10);
-        document.getElementById('profit').textContent = Math.floor(document.getElementById('item-price').value * 0.9);
+        const price = document.getElementById('item-price').value;
+        document.getElementById('add-tax-price').textContent = Math.floor(price / 10).toLocaleString();
+        document.getElementById('profit').textContent = Math.floor(price * 0.9).toLocaleString();
       }
     }
     XHR.send();
