@@ -19,9 +19,9 @@ describe User do
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it 'emailには@が含まれている事' do
-        @user.email = "hogehoge"
+        @user.email = 'hogehoge'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'emailが空では登録できない' do
         @user.email = ''
@@ -68,12 +68,12 @@ describe User do
       it 'ユーザー本名の名字が全角でなければ登録できない' do
         @user.first_name = 'abc'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        expect(@user.errors.full_messages).to include('First name is invalid')
       end
       it 'ユーザー本名の名前が全角でなければ登録できない' do
         @user.last_name = 'abc'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid")
+        expect(@user.errors.full_messages).to include('Last name is invalid')
       end
       it 'ユーザー本名の名字(カナ)が全角カタカナでなければ登録できない' do
         @user.first_name_kana = 'ｱｲｳ'
