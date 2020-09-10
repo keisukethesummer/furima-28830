@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user
+  belongs_to :user, optional: true
   with_options presence: true do
     validates :user_id
     validates :name
