@@ -63,3 +63,5 @@ gem 'sprockets'
 gem 'active_hash'
 
 gem 'mini_magick'
+
+gem 'pry-rails'
