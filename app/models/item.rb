@@ -16,5 +16,9 @@ class Item < ApplicationRecord
       validates :shipment_day_id
     end
   end
-  belongs_to_active_hash :category, :condition, :delivery, :seller, :shipment_day
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :delivery_fee
+  belongs_to_active_hash :seller_prefecture
+  belongs_to_active_hash :shipment_day
 end
