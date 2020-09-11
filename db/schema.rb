@@ -33,10 +33,9 @@ ActiveRecord::Schema.define(version: 2020_09_08_090904) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
-    t.string "image", null: false
     t.text "description", null: false
     t.integer "price", null: false
     t.integer "category_id", null: false
@@ -49,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_090904) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", limit: 191, default: "", null: false
     t.string "encrypted_password", limit: 191, default: "", null: false
     t.string "reset_password_token", limit: 191
