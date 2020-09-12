@@ -18,7 +18,12 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
+  end
+  
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
