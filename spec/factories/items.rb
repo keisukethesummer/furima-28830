@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    user_id           {1}
+    user_id           { 1 }
     name              { '商品' }
     description       { '2010年頃に購入したジャケットです' }
     price             { '1000' }
