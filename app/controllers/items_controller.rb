@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new]
   before_action :move_to_index_two, only: [:edit]
-  
+  before_action :item_find, only: [:show, :edit, :update]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -21,15 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id]) 
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to action: :show
     else
@@ -47,6 +44,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def item_find
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :price, :category_id, :condition_id, :delivery_fee_id, :seller_prefecture_id, :shipment_day_id).merge(user_id: current_user.id)
