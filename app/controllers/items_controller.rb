@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new]
   before_action :move_to_index_two, only: [:edit]
-  before_action :item_find, only: [:show, :edit, :update]
+  before_action :item_find, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -32,6 +33,13 @@ class ItemsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to action: :index
+    else
+      render :show
   end
 
   def move_to_index
