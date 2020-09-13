@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     else
       render :show
+    end
   end
 
   def move_to_index
