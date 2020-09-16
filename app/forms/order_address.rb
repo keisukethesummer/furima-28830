@@ -1,5 +1,4 @@
 class OrderAddress
-
   include ActiveModel::Model
   attr_accessor :token, :user_id, :name, :price, :item_id, :postal_number, :prefecture_id, :city, :build_name, :house_number, :phone_number
 
@@ -9,7 +8,7 @@ class OrderAddress
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :city
     validates :house_number
-    validates :phone_number, length: {maximum: 11 }
+    validates :phone_number, length: { maximum: 11 }
   end
 
   def save
