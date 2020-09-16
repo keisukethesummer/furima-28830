@@ -13,10 +13,7 @@ class OrderAddress
   end
 
   def save
-    # binding.pry
     order = Order.create(user_id: user_id, item_id: item_id)
-    # binding.pry
     Address.create(order_id: order.id, postal_number: postal_number, prefecture_id: prefecture_id, city: city, build_name: build_name, house_number: house_number, phone_number: phone_number)
-    # binding.pry
   end
 end
