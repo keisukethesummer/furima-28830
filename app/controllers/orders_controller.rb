@@ -4,11 +4,7 @@ class OrdersController < ApplicationController
 
 
   def index
-    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
-    @orders = Order.all
-    @orders.each do |order|
-      redirect_to root_path if order.item_id == @item.id
-    end
+    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id || @item.order != nil
     @order = OrderAddress.new
   end
 
