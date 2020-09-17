@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def sell_item
+  def set_item
     @item = Item.find(params[:item_id])
   end
 
