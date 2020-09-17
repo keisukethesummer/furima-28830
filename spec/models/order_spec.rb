@@ -13,7 +13,27 @@ describe Order do
     end
 
     context '商品購入がうまくいかないとき' do
-      it '正しいクレジットカード情報出なければ登録できない' do
+      it 'クレジットカード番号が空では登録できない' do
+        @order_address.token = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'カードの有効期限（年）が空では登録できない' do
+        @order_address.token = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'カードの有効期限（月）が空では登録できない' do
+        @order_address.token = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'クレジットカードのセキュリティーコードが空では登録できない' do
+        @order_address.token = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+      it '正しいクレジットカード情報でなければ登録できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
@@ -25,6 +45,11 @@ describe Order do
       end
       it 'postal_numberはハイフンがなければ購入できない' do
         @order_address.postal_number = '1234567'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Postal number is invalid')
+      end
+      it 'postal_numberは半角でなければ購入できない' do
+        @order_address.postal_number = '１２３−４５６７'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Postal number is invalid')
       end
