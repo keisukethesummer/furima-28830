@@ -74,3 +74,4 @@ end
 gem 'carrierwave'
 
 gem 'payjp'
+
