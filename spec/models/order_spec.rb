@@ -13,27 +13,27 @@ describe Order do
     end
 
     context '商品購入がうまくいかないとき' do
-      it 'クレジットカード番号が空では登録できない' do
+      it 'クレジットカード番号が空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
-      it 'カードの有効期限（年）が空では登録できない' do
+      it 'カードの有効期限（年）が空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
-      it 'カードの有効期限（月）が空では登録できない' do
+      it 'カードの有効期限（月）が空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
-      it 'クレジットカードのセキュリティーコードが空では登録できない' do
+      it 'クレジットカードのセキュリティーコードが空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
-      it '正しいクレジットカード情報でなければ登録できない' do
+      it '正しいクレジットカード情報でなければ購入できない' do
         @order_address.token = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
@@ -68,10 +68,15 @@ describe Order do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("House number can't be blank")
       end
-      it 'phone_numberが空では登録できない' do
+      it 'phone_numberが空では購入できない' do
         @order_address.phone_number = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
+      end
+      it 'phone_numberが11桁以内でなければは購入できない' do
+        @order_address.phone_number = '01234567890123'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
     end
   end
