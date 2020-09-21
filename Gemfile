@@ -69,6 +69,7 @@ gem 'pry-rails'
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'carrierwave'
