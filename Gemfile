@@ -62,12 +62,12 @@ gem 'sprockets'
 
 gem 'active_hash'
 
-gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
 gem 'pry-rails'
 
 group :production do
+  # gem 'rails_12factor'
   gem 'unicorn', '5.4.1'
 end
 
