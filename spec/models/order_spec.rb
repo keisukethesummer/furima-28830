@@ -76,7 +76,7 @@ describe Order do
       it 'phone_numberが11桁以内でなければは購入できない' do
         @order_address.phone_number = '01234567890123'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+        expect(@order_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
     end
   end
